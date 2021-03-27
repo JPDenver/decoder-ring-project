@@ -80,3 +80,25 @@ describe("caesar",()=>{
 
     })
 });
+
+//Decoding Messages
+describe("ceasar",()=>{
+    it("Should decode correctly",()=>{
+        const input = "az";
+        const shift = 1;
+        const expected = "zy";
+        const actual = caesar(input,shift,encode=false);
+        expect(actual).to.equal(expected); 
+
+
+    })
+})
+
+// else if (letterCode >= 97 && letterCode <=122){
+//     const checkLetter = letterCode-97+shift%26+97;
+//     if(checkLetter > 96){
+//     letter = String.fromCharCode(checkLetter);
+//     }else{
+//       letter = String.fromCharCode(checkLetter + 26);
+//     }
+//     }

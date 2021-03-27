@@ -9,10 +9,6 @@ const polybiusModule = (function () {
   function polybius(input, encode = true) {
     // your solution code here
 
-
-
-    
-
     //Use this getKeyByValueFunction Later
     function getKeyByValue(object, value) {
       return Object.keys(object).find(key => object[key] === value);
@@ -22,23 +18,19 @@ const polybiusModule = (function () {
     const gridObject = {'a':'11','b':'21','c':'31','d':'41','e':'51','f':'12','g':'22','h':'32','i':'42','j':'42',
   'k':'52','l':'13','m':'23','n':'33','o':'43','p':'53','q':'41','r':'24','s':'34','t':'44','u':'54',
     'v':'15','w':'25','x':'35','y':'45','z':'55'," ":" "};
+    
     //Initialize the output string
     let output ="";
     //switch it to all lower case
     input = input.toLowerCase();
 
-
-    //This if will tell you if you are dealing with numbers that you have
-    //to turn in to letters
-
     //Initialize a variable to use to lookup correspinding letters
     let letterKey = "";
     
-    
+    //This is simply checking if they are numbers first and then decoding the numbers and all else from there
     if(input[0]==='1'||input[0]==='2'||input[0]==='3'||input[0]==='4'||input[0]==='5'){
-      console.log("This should work");
       
-      //Check if there is an odd number of numbers
+      //Check if there is an odd number of numbers, if so return false
       let oddCheck = input.split(' ').join('');
       if(oddCheck.length%2!=0){
         return false;
@@ -68,30 +60,25 @@ const polybiusModule = (function () {
           }
           }
       }
-      console.log(output);
+      //return the output
       return output;
     }
 
+    //IF THE INPUT WAS NOT NUMBERS THE CODE WILL RUN FROM HERE TO PREFORM OPERATIONS ON LETTERS
 
 
-
-
-    console.log(input);
     //loop through the letters in the input individually and match them to the 
     //letters in the object
     for (let i = 0; i< input.length;i++){
       for (letter in gridObject){
         if(input[i]===letter){
-          //When that occurs make the value a new variable
-          let letterNumber = gridObject[letter];
           //Add that variable to the output each time
-          output += letterNumber;
+          output += gridObject[letter];
 
-          //This is just an example of how we can use the getkeybyvalue fucntion
-          //console.log(getKeyByValue(gridObject,'55'));
         }
       }
     }
+    //Maintain Spaces
     if(output===""||output===" "){
       console.log(true);
     }

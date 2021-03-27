@@ -21,15 +21,14 @@ const substitutionModule = (function () {
     input = input.toLowerCase();
     // your solution code here
     const regularAlphabet = "abcdefghijklmnopqrstuvwxyz";
-    console.log(input);
-    console.log(alphabet);
+
 
     //return false if the alphabet is not exactly 26 characters or doesn't exist at all
     if(!alphabet || alphabet.length!=26 || !checkUniquness(alphabet) ){
       return false;
     }
 
-
+    //Initialize a string for the output message
     let outputMessage = "";
     
 
@@ -41,7 +40,7 @@ const substitutionModule = (function () {
       if(input[z]===" "){
         outputMessage += " ";
       }else{
-      //console.log(input.charCodeAt(z));
+      // You can get a number to use for indexing using this (input.charCodeAt(z));
       const swapIndex = input.charCodeAt(z)-97;
       //assign new letter from alphabet to the output message
       outputMessage += alphabet[swapIndex];
@@ -80,3 +79,4 @@ const substitutionModule = (function () {
 })();
 
 module.exports = substitutionModule.substitution;
+
